@@ -12,6 +12,13 @@ namespace ServiceBusExample
     {
 		public static IConfigurationRoot Configuration { get; set; }
 
+		/*
+		 * 
+		 - Set up container
+		 - Add Serilog
+
+		 */
+
 		static void Main(string[] args)
 		{
 			var devEnvironmentVariable = Environment.GetEnvironmentVariable("NETCORE_ENVIRONMENT");
@@ -26,7 +33,7 @@ namespace ServiceBusExample
 			// only add secrets in development
 			if (isDevelopment)
 			{
-				builder.AddUserSecrets("26A8EF48-294D-4C99-A15E-EB796BF91056");
+				builder.AddUserSecrets(typeof(Program).Assembly);
 			}
 
 			Configuration = builder.Build();
