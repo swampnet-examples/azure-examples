@@ -54,7 +54,7 @@ namespace GenerateSAS
 
         private static CloudStorageAccount GetStorageAccount()
         {
-            string connectionString = @"DefaultEndpointsProtocol=https;AccountName=swampnet;AccountKey=iynA1JSp8kMcQFk8R+r+qyU8BcO7jxY2d1KEo8cxdIl3Yb3z4p2vEe6frldG9aUQAwK4YMVwkYENzXtvTKV/Dg==;EndpointSuffix=core.windows.net";
+            string connectionString = "<get connection string>";
 
             CloudStorageAccount storageAccount = null;
 
