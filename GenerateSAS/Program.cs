@@ -8,17 +8,17 @@ namespace GenerateSAS
     {
         static void Main(string[] args)
         {
-            var uri = GetContainerSasUri(
+            var token = GetContainerSasToken(
                 GetContainer("test-sas"), 
                 "test-access-policy", 
                 "5.65.214.182");
 
             /*
-             * https://swampnet.blob.core.windows.net/test-sas/test.png?sv=2018-03-28&sr=c&si=test-access-policy&sig=SxJqQdmw66h%2FDQOcnKFpre1IHS3gilNM2sFx%2FlpsHGg%3D&spr=https&sip=5.65.214.182
+             * https://swampnet.blob.core.windows.net/test-sas/test.png?sv=2018-03-28&sr=c&si=test-access-policy&sig=pbD25IB4rR8XFqJUKZDsIT4VkSAO1KKvvTxOuusG324%3D&spr=https&sip=5.65.214.182
              */
         }
 
-        private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName, string ipAddressRange)
+        private static string GetContainerSasToken(CloudBlobContainer container, string storedPolicyName, string ipAddressRange)
         {
             string sasContainerToken;
 
@@ -32,7 +32,7 @@ namespace GenerateSAS
 
 
             // Return the URI string for the container, including the SAS token.
-            return container.Uri + sasContainerToken;
+            return sasContainerToken;
         }
 
 
@@ -54,7 +54,7 @@ namespace GenerateSAS
 
         private static CloudStorageAccount GetStorageAccount()
         {
-            string connectionString = "<get connection string>";
+            string connectionString = @"<connection-string>";
 
             CloudStorageAccount storageAccount = null;
 
